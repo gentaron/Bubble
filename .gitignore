@@ -1,39 +1,36 @@
-# dependencies
-node_modules/
+```
+# Compiled and binary files
+*.pyc
 __pycache__/
-.pnp/
-.pnp.js
 
-# environment
-.env
-.env.local
-.env.*.local
-
-# build
-.next/
-out/
+# Dependencies
+.venv/
+venv/
+node_modules/
 dist/
 build/
+target/
 
-# ide
+# Logs and temp files
+*.log
+*.tmp
+*.swp
+
+# Environment
+.env
+.env.local
+*.env.*
+
+# Editors
 .vscode/
 .idea/
-*.swp
-*.swo
 
-# os
+# Coverage
+.coverage
+coverage/
+htmlcov/
+
+# OS
 .DS_Store
 Thumbs.db
-
-# debug
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pip-log.txt
-
-# testing
-coverage/
-
-# misc
-*.tsbuildinfo
-.turbo/
+```
