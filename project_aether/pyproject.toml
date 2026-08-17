@@ -1,0 +1,158 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "project-aether"
+version = "1.0.0"
+description = "World's Most Advanced App - Quantum-resistant, Neuro-symbolic AI with Abel Prize-level Mathematics"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "AETHER Project Team", email = "team@project-aether.dev"}
+]
+maintainers = [
+    {name = "AETHER Core Team", email = "core@project-aether.dev"}
+]
+keywords = [
+    "quantum-cryptography",
+    "neuro-symbolic-ai",
+    "lattice-based-cryptography",
+    "fractal-geometry",
+    "elliptic-curves",
+    "riemann-zeta",
+    "post-quantum",
+    "cryptography",
+    "mathematics",
+    "ai"
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Mathematics",
+    "Topic :: Security :: Cryptography",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence"
+]
+requires-python = ">=3.9"
+dependencies = [
+    "mpmath>=1.3.0",
+    "numpy>=1.24.0",
+    "scipy>=1.10.0",
+    "cryptography>=41.0.0",
+    "PyNaCl>=1.5.0",
+    "pycryptodome>=3.19.0",
+    "torch>=2.0.0",
+    "networkx>=3.1",
+    "python-dotenv>=1.0.0",
+    "pydantic>=2.5.0",
+    "typing-extensions>=4.8.0"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-cov>=4.1.0",
+    "black>=23.11.0",
+    "flake8>=6.1.0",
+    "mypy>=1.7.0",
+    "pre-commit>=3.6.0"
+]
+docs = [
+    "sphinx>=7.2.0",
+    "sphinx-rtd-theme>=2.0.0",
+    "mkdocs>=1.5.0",
+    "mkdocs-material>=9.5.0"
+]
+security = [
+    "bandit>=1.7.0",
+    "safety>=2.3.0",
+    "trufflehog>=3.65.0"
+]
+
+[project.urls]
+Homepage = "https://project-aether.dev"
+Documentation = "https://docs.project-aether.dev"
+Repository = "https://github.com/aether-project/project_aether"
+Issues = "https://github.com/aether-project/project_aether/issues"
+Changelog = "https://github.com/aether-project/project_aether/blob/main/CHANGELOG.md"
+
+[project.scripts]
+aether = "core.aether_core:main"
+aether-core = "core.aether_core:main"
+
+[tool.setuptools]
+packages = ["core", "crypto", "math"]
+
+[tool.setuptools.package-data]
+"*" = ["*.md", "*.txt", "*.html"]
+
+[tool.black]
+line-length = 88
+target-version = ['py39', 'py310', 'py311', 'py312']
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+line_length = 88
+
+[tool.mypy]
+python_version = "3.9"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+check_untyped_defs = true
+
+[tool.pytest.ini_options]
+minversion = "7.4"
+addopts = "-ra -q --cov=core --cov-report=term-missing"
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_functions = ["test_*"]
+
+[tool.coverage.run]
+source = ["core", "crypto", "math"]
+branch = true
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:"
+]
+
+[tool.bandit]
+targets = ["core", "crypto", "math"]
+exclude_dirs = ["tests", "venv", ".venv"]
+
+[tool.commitizen]
+name = "cz_conventional_commits"
+version = "1.0.0"
+tag_format = "$version"
+version_files = [
+    "pyproject.toml:version",
+    "core/aether_core.py:__version__"
+]
