@@ -1,0 +1,45 @@
+# Project AETHER - 開発用依存関係
+
+# requirements.txt を含む
+-r requirements.txt
+
+# 追加開発ツール
+pre-commit>=3.6.0  # 事前コミットフック
+commitizen>=3.13.0  # Conventional Commits
+git-changelog>=2.4.0  # 変更ログ自動生成
+
+# プロファイリング
+py-spy>=0.3.14  # サンプリングプロファイラ
+memory-profiler>=0.61.0  # メモリプロファイリング
+line-profiler>=4.1.0  # 行単位プロファイリング
+
+# ベンチマーク
+pytest-benchmark>=4.0.0
+asv>=0.6.0  # 速度ベンチマーク
+
+# モック・テスト支援
+responses>=0.24.0  # HTTP レスポンスモック
+faker>=20.0.0  # テストデータ生成
+hypothesis>=6.92.0  # プロパティベースドテスト
+
+# コード解析
+radon>=6.0.0  # 複雑度解析
+xenon>=0.9.0  # 品質閾値チェック
+pylint>=3.0.0  # 静的コード解析
+
+# セキュリティテスト
+ OWASP ZAP Proxy (手動インストール推奨)
+trufflehog>=3.65.0  # シークレット検出
+detect-secrets>=1.4.0  # 機密情報検出
+
+# ドキュメントテスト
+doctest>=0.10.0
+sphinx-testing>=1.0.0
+
+# 相互運用性テスト
+tox>=4.11.0  # 複数環境テスト
+nox>=2023.4.22  # テストオーケストレーション
+
+# パフォーマンステスト
+locust>=2.20.0  # 負荷テスト
+artillery>=2.0.0  # API 負荷テスト（Node.js）

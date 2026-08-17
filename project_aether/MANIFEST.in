@@ -1,0 +1,26 @@
+# Project AETHER MANIFEST.in
+# パッケージに含めるファイルを指定
+
+include README.md
+include LICENSE
+include NOTICE
+include CHANGELOG.md
+include CONTRIBUTING.md
+include CONTRIBUTORS.md
+include CITATION.md
+include SECURITY.md
+include NOTICES.md
+include requirements.txt
+include requirements-dev.txt
+include pyproject.toml
+include Makefile
+include .gitignore
+
+recursive-include core *.py
+recursive-include crypto *.py
+recursive-include math *.py
+recursive-include frontend *.html *.css *.js
+recursive-include docs *.rst *.md
+
+graft tests
+prune __pycache__
